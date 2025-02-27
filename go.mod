@@ -1,4 +1,4 @@
-module github.com/Dearlimg/Goutils
+module Goutils
 
 go 1.23.0
 
