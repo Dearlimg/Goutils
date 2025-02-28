@@ -1,9 +1,9 @@
 package heal
 
 import (
-	"Goutils/pkg/goroutine/pattern"
 	"context"
 	"fmt"
+	"github.com/Dearlimg/Goutils/pkg/goroutine/pattern"
 
 	"log"
 	"time"

@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"Goutils/pkg/password"
+	"github.com/Dearlimg/Goutils/pkg/password"
 	"math/rand"
 	"strings"
 	"time"

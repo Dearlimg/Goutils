@@ -1,8 +1,7 @@
 package app
 
 import (
-	"Goutils/pkg/app/errcode"
-	//"github.com/XYYSWK/Lutils/pkg/app/errcode"
+	"github.com/Dearlimg/Goutils/pkg/app/errcode"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )

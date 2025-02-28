@@ -1,8 +1,8 @@
 package task
 
 import (
-	"Goutils/pkg/goroutine/heal"
 	"context"
+	"github.com/Dearlimg/Goutils/pkg/goroutine/heal"
 
 	"log"
 	"time"

@@ -1,7 +1,7 @@
 package app
 
 import (
-	"Goutils/pkg/utils"
+	"github.com/Dearlimg/Goutils/pkg/utils"
 	"net/http"
 )
 
