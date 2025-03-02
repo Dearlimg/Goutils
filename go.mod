@@ -1,4 +1,4 @@
-module github.com/XYYSWK/Lutils
+module github.com/Dearlimg/Goutils
 
 go 1.23.0
 
