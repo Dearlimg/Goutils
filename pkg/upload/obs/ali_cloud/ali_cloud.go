@@ -40,7 +40,6 @@ func Init(config Config) *OSS {
 
 var ErrFileOpen = errors.New("文件打开失败")
 
-// 修改结构体名为OSS
 func (o *OSS) UploadFile(file *multipart.FileHeader) (string, string, error) {
 	// 1. 创建OSS客户端（修改方法调用）
 	client, err := o.createOSSClient()
