@@ -1,6 +1,7 @@
 package upload
 
 import (
+	"github.com/aliyun/aliyun-oss-go-sdk/oss"
 	"github.com/huaweicloud/huaweicloud-sdk-go-obs/obs"
 	"mime/multipart"
 )
@@ -11,6 +12,6 @@ type OBS interface {
 }
 
 type OSS interface {
-	UploadFile(file *multipart.FileHeader, input *obs.PutObjectInput) (string, string, error)
-	DeleteFile(keys ...string) (*obs.DeleteObjectsOutput, error)
+	UploadFile(file *multipart.FileHeader) (string, string, error)
+	DeleteFile(keys ...string) (oss.DeleteObjectsResult, error)
 }
