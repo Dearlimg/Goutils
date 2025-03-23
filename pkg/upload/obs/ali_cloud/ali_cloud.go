@@ -75,7 +75,7 @@ func (o *OSS) UploadFile(file *multipart.FileHeader) (string, string, error) {
 	}
 
 	// 5. 返回访问URL（使用BucketDomain）
-	return o.config.BucketDomain + "/" + key, key, nil
+	return o.config.BucketUrl + "/" + key, key, nil
 }
 
 func (o *OSS) DeleteFile(keys ...string) (oss.DeleteObjectsResult, error) {
