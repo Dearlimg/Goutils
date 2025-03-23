@@ -9,3 +9,8 @@ type OBS interface {
 	UploadFile(file *multipart.FileHeader, input *obs.PutObjectInput) (string, string, error)
 	DeleteFile(keys ...string) (*obs.DeleteObjectsOutput, error)
 }
+
+type OSS interface {
+	UploadFile(file *multipart.FileHeader, input *obs.PutObjectInput) (string, string, error)
+	DeleteFile(keys ...string) (*obs.DeleteObjectsOutput, error)
+}
