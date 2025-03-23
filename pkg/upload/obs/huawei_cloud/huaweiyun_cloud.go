@@ -115,6 +115,5 @@ func (o *OBS) createObsClient() (*obs.ObsClient, error) {
 	if err != nil {
 		return nil, err
 	}
-
 	return obsClient, nil
 }
