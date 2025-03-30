@@ -3,6 +3,8 @@ package ali_cloud
 import (
 	"errors"
 	"github.com/aliyun/aliyun-oss-go-sdk/oss"
+	"github.com/joho/godotenv"
+	"log"
 	"mime/multipart"
 	"os"
 	"path"
@@ -99,7 +101,9 @@ func (o *OSS) DeleteFile(keys ...string) (oss.DeleteObjectsResult, error) {
 
 // 修改客户端创建方法
 func (o *OSS) createOSSClient() (*oss.Client, error) {
-
+	if err := godotenv.Load(); err != nil {
+		log.Fatal("无法加载 .env 文件")
+	}
 	o.config.AccessKeyID = os.Getenv("ALIYUN_OSS_ACCESS_KEY_ID")
 	o.config.SecretAccessKey = os.Getenv("ALIYUN_OSS_ACCESS_KEY_SECRET")
 
