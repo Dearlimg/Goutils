@@ -11,6 +11,7 @@ type OBS interface {
 	DeleteFile(keys ...string) (*obs.DeleteObjectsOutput, error)
 }
 
+// OSS 尝试oss
 type OSS interface {
 	UploadFile(file *multipart.FileHeader) (string, string, error)
 	DeleteFile(keys ...string) (oss.DeleteObjectsResult, error)
