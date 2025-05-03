@@ -108,7 +108,7 @@ func (o *OSS) createOSSClient() (*oss.Client, error) {
 	o.config.SecretAccessKey = os.Getenv("ALIYUN_OSS_ACCESS_KEY_SECRET")
 
 	// 创建客户端（注意参数顺序差异）
-	client, err := oss.New(o.config.AccessKeyID, o.config.SecretAccessKey, o.config.Endpoint)
+	client, err := oss.New(o.config.Endpoint, o.config.AccessKeyID, o.config.SecretAccessKey)
 	if err != nil {
 		return nil, errors.New("create OSS client failed: " + err.Error())
 	}
