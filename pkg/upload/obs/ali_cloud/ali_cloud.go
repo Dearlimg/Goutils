@@ -2,6 +2,7 @@ package ali_cloud
 
 import (
 	"errors"
+	"fmt"
 	"github.com/aliyun/aliyun-oss-go-sdk/oss"
 	"github.com/joho/godotenv"
 	"log"
@@ -45,6 +46,7 @@ var ErrFileOpen = errors.New("文件打开失败")
 func (o *OSS) UploadFile(file *multipart.FileHeader) (string, string, error) {
 	// 1. 创建OSS客户端（修改方法调用）
 	client, err := o.createOSSClient()
+	fmt.Println("Upload OSS Client", err)
 	if err != nil {
 		return "", "", err
 	}
@@ -59,12 +61,14 @@ func (o *OSS) UploadFile(file *multipart.FileHeader) (string, string, error) {
 
 	// 3. 获取存储桶实例
 	bucket, err := client.Bucket(o.config.BucketName)
+	fmt.Println("bucket", err)
 	if err != nil {
 		return "", "", errors.New("get bucket failed: " + err.Error())
 	}
 
 	// 4. 读取文件并上传（修改上传方式）
 	f, openError := file.Open()
+	fmt.Println("dakaishibai", openError)
 	if openError != nil {
 		return "", "", ErrFileOpen
 	}
@@ -72,6 +76,7 @@ func (o *OSS) UploadFile(file *multipart.FileHeader) (string, string, error) {
 
 	// 阿里云OSS上传接口差异
 	err = bucket.PutObject(key, f)
+	fmt.Println("上传失败", err)
 	if err != nil {
 		return "", "", errors.New("function bucket.PutObject failed: " + err.Error())
 	}
@@ -106,11 +111,11 @@ func (o *OSS) createOSSClient() (*oss.Client, error) {
 	}
 	o.config.AccessKeyID = os.Getenv("ALIYUN_OSS_ACCESS_KEY_ID")
 	o.config.SecretAccessKey = os.Getenv("ALIYUN_OSS_ACCESS_KEY_SECRET")
-
 	// 创建客户端（注意参数顺序差异）
 	client, err := oss.New(o.config.Endpoint, o.config.AccessKeyID, o.config.SecretAccessKey)
 	if err != nil {
 		return nil, errors.New("create OSS client failed: " + err.Error())
 	}
+	fmt.Println("create OSS client", err, o.config.Endpoint, o.config.AccessKeyID, o.config.SecretAccessKey)
 	return client, nil
 }
